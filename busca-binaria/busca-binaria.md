@@ -1,0 +1,1 @@
+A busca binaria tem complexidade Big O de O(log n) = Tempo de execução logaritmico
