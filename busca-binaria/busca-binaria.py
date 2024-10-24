@@ -1,5 +1,11 @@
 import collections
 
+# o metodo deve receber a lista e o alvo
+# a lista deve esta ordenada
+# define uma variavel com como baixo = indice 0
+# define uma variavel alto = len(lista) -1
+# fazemos o loop que executa enquanto baixo for menor ou igual a alto
+
 class Algoritmos:
     def busca_binaria(self, lista, item):
         baixo = 0
