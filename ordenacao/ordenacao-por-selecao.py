@@ -1,6 +1,7 @@
 # algoritmo de ordenacao por insercao | selection sort | 
 # Ele tem complexidade O(n ^ 2) por é necessario percorer o array n vezes para ordernar
 # os registros em uma nova lista
+
 class Algoritmos:
     @staticmethod
     def buscaMenor(arr):
@@ -11,7 +12,7 @@ class Algoritmos:
                 menor = arr[i] # guarda o menor valor
                 menor_indice = i # atualiza o indice do menor valor
         return menor_indice # retorna o indice do menor valor
-    
+
     @staticmethod
     def ordernacaoPorSelecao(arr):
         novoArr = []
