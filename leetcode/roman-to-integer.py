@@ -1,19 +1,37 @@
 class Solution(object):
-    def romanToInt(self, s:str):
-        """
-        :type s: str
-        :rtype: int
-        """
-        dictionary = self.createDictionary()
-        outNumber = 0
-        # LVIII #
-        for romainNumber in s:
-            outNumber += dictionary.get(romainNumber)
-            pass
-        print(outNumber)
-    
+    def __init__(self):
+        self.dict = self.createDictionary()
 
-    def createDictionary(self) -> dict[str, int]:
+    def romanToInt(self, s):
+        number = 0
+        count = 0
+        while count < len(s):
+            result = self.checkIfMoreTwoDigit(count,s)
+            if result > 0:
+                number += result
+                count += 2
+            else:
+              number += self.dict.get(s[count])
+              count += 1
+              print(count)
+        return number
+    
+    def checkIfMoreTwoDigit(self, index:int, romain:str) -> int:
+        result = 0
+        loopEnabled = True
+        if (index + 1) > len(romain) -1:
+            return 0
+        while loopEnabled:
+            temp = romain[index] + romain[index+1]
+            result = self.dict.get(temp)
+            if result is None:
+                loopEnabled = False
+                return 0
+            else:
+                loopEnabled = False
+        return result
+    
+    def createDictionary(self) -> (str | int):
         dict = {
             "I": 1,
             "IV": 4,
@@ -25,9 +43,8 @@ class Solution(object):
             "XC": 90,
             "C": 100,
             "CD": 400,
-            "D": 500,
+            "D": 500, 
             "CM": 900,
-            "M": 1000}
+            "M": 1000
+        }
         return dict
-        
-        
